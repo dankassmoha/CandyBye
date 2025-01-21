@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/candybye/static/js/main.2ba9a79a.js",
+    "index.html": "/candybye/index.html",
+    "main.2ba9a79a.js.map": "/candybye/static/js/main.2ba9a79a.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.2ba9a79a.js"
+  ]
+}
