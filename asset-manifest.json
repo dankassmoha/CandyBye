@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/CandyBye/static/js/main.4a37a1df.js",
+    "main.js": "/CandyBye/static/js/main.2e10a164.js",
     "index.html": "/CandyBye/index.html",
-    "main.4a37a1df.js.map": "/CandyBye/static/js/main.4a37a1df.js.map"
+    "main.2e10a164.js.map": "/CandyBye/static/js/main.2e10a164.js.map"
   },
   "entrypoints": [
-    "static/js/main.4a37a1df.js"
+    "static/js/main.2e10a164.js"
   ]
 }
