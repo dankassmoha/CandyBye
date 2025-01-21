@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CandyBye</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> <!-- Подключаем шрифт -->
+    <link rel="stylesheet" href="styles.css"> <!-- Подключаем CSS файл -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" /> <!-- Подключение AOS для анимаций -->
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <img src="image/logo.png" alt="CandyBye Logo" class="logo">
+        <nav>
+            <a href="main.html">Главная</a>
+            <a href="#category1">Снеки</a>
+            <a href="#category2">Напитки</a>
+            <a href="cart.html">Корзина</a>
+            <a href="profile.html">Личный кабинет</a> <!-- Вкладка личного кабинета -->
+        </nav>
+    </header>
+
+    <section class="main-section" data-aos="fade-up">
+        <h1>Добро пожаловать в CandyBye</h1>
+        <p class="slogan">Мы предлагаем самые вкусные сладости, чтобы угодить каждому!</p>
+    </section>
+
+    <section class="category" id="category1" data-aos="fade-up">
+        <img src="image/sweets.jpg" alt="Сладости">
+        <h2>Сладости</h2>
+    </section>
+    <section class="category" id="category2" data-aos="fade-up">
+        <img src="image/drinks.jpg" alt="Напитки">
+        <h2>Напитки</h2>
+    </section>
+    <section class="category" id="category3" data-aos="fade-up">
+        <img src="image/snacks.jpg" alt="Снеки">
+        <h2>Снеки</h2>
+    </section>
+
+    <section class="popular-products">
+        <h2>Популярные товары</h2>
+        <div class="product">
+            <img src="image/product1.png" alt="Товар 1">
+            <p>Товар 1</p>
+        </div>
+        <div class="product">
+            <img src="image/product2.png" alt="Товар 2">
+            <p>Товар 2</p>
+        </div>
+        <div class="product">
+            <img src="image/product3.png" alt="Товар 3">
+            <p>Товар 3</p>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Длительность анимации
+            easing: 'ease-in-out', // Тип анимации
+            once: true // Анимация будет проигрываться только один раз
+        });
+
+        // Плавно показываем контент
+        window.addEventListener('load', () => {
+            document.body.classList.add('fade-in');
+            
+            // Задержка для фона
+            setTimeout(() => {
+                document.body.classList.add('fade-in-background'); // Проявляем фон с анимацией
+            }, 1000); // Фон проявляется через 1 секунду
+        });
+    </script>
+</body>
+</html>

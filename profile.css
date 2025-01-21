@@ -1,0 +1,271 @@
+/* Шапка */
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
+    padding: 10px 0; /* Уменьшение верхнего отступа */
+    margin: 0;
+    position: relative; /* Это позволит вам управлять позиционированием элементов */
+}
+
+/* Анимация логотипа */
+.logo {
+    width: 250px;
+    margin-top: 10px; /* Уменьшаем отступ сверху */
+    animation: bounceLogo 2s infinite;
+}
+
+@keyframes bounceLogo {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+nav {
+    margin-top: 0px; /* Уменьшение отступа для навигации */
+}
+
+nav a {
+    color: white;
+    margin: 0 25px;
+    text-decoration: none;
+    font-size: 26px;
+    text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
+    position: relative;
+    transition: color 0.3s, transform 0.3s ease, opacity 0.3s ease;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Анимация для кнопок */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Анимация для проявления снизу */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Изменение стиля для заголовка "Профиль" */
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 45px;
+    margin-top: 10px; /* Уменьшено расстояние */
+    background: linear-gradient(to right, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Основной контейнер профиля */
+.profile-frame {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
+    width: 80%;
+    max-width: 700px;
+    margin: 20px auto;
+    color: white;
+    animation: fadeUp 1s ease-out;
+}
+
+/* Карточки */
+.card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    animation: fadeUp 1s ease-out;
+}
+
+/* Контейнер для аватарки */
+.avatar-container {
+    text-align: center;
+    position: relative;
+    animation: fadeUp 1s ease-out;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    border: 3px solid #00ffff;
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.avatar.active {
+    transform: scale(1.1);
+}
+
+/* Новое меню аватара */
+.avatar-menu {
+    display: none;
+    position: absolute;
+    top: 0; /* Меню теперь будет рядом с аватаром */
+    left: 135%; /* Меню сдвигается в сторону, чтобы появиться рядом с аватаром */
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    padding: 8px;
+    width: 180px; /* Уменьшил ширину меню */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.avatar-menu button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.avatar-menu button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.avatar-menu button:active {
+    transform: scale(0.95);
+}
+
+.avatar-menu.active {
+    display: block;
+}
+
+.username {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.registration-date {
+    font-size: 1rem;
+    color: #bbb;
+    margin-top: 5px;
+}
+
+/* Бонусный прогресс-бар */
+.progress-bar {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+    width: 100%;
+    animation: fadeUp 1s ease-out;
+}
+
+.progress-bar div {
+    height: 100%;
+    background: linear-gradient(to right, #00ff99, #00bfff);
+    transition: width 0.5s ease;
+}
+
+/* Карусель заказов */
+.order-carousel {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px;
+    scroll-snap-type: x mandatory;
+    animation: fadeUp 1s ease-out;
+}
+
+.order-item {
+    min-width: 180px;
+    background: linear-gradient(to right, #ff00ff, #00ffff);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    scroll-snap-align: start;
+}
+
+/* Звезды */
+.stars {
+    display: inline-block;
+    color: #FFD700;
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+/* Кнопка выхода */
+.logout-button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+    background-color: #e5533c;
+}
+
+/* Общее для body */
+body {
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+    background: url('image/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Тёмная наложенная полупрозрачная область */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* Новые стили для кнопок на аватаре */
+.avatar-menu.active button {
+    background-color: rgba(0, 255, 255, 0.3); /* Новый цвет для активных кнопок */
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.5); /* Добавление светящегося эффекта */
+}
+
+.avatar-menu.active button:focus {
+    outline: none; /* Убираем фокус по умолчанию */
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.7); /* Фокус с ярким контуром */
+}
+
