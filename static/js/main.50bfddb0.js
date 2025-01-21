@@ -1,0 +1,2 @@
+(()=>{JSON.parse(localStorage.getItem("users"));"./main.html"===window.location.pathname&&(window.addEventListener("load",(()=>{document.body.classList.add("main")})),AOS.init({duration:1e3,easing:"ease-in-out",once:!0}))})();
+//# sourceMappingURL=main.50bfddb0.js.map
