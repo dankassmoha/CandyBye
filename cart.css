@@ -1,0 +1,248 @@
+/* Общее оформление */
+body {
+    position: relative;
+    font-family: 'Pacifico', cursive;
+    background: url('image/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    text-align: center;
+    min-height: 100vh;
+    font-size: 18px;
+    overflow-x: hidden;
+    transition: opacity 1s ease;
+    opacity: 1;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* Шапка */
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
+    padding: 10px 0; /* Уменьшение верхнего отступа */
+    margin: 0;
+    position: relative; /* Это позволит вам управлять позиционированием элементов */
+}
+
+/* Анимация логотипа */
+.logo {
+    width: 250px;
+    margin-top: 10px; /* Уменьшаем отступ сверху */
+    animation: bounceLogo 2s infinite;
+}
+
+@keyframes bounceLogo {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+nav {
+    margin-top: 0px; /* Уменьшение отступа для навигации */
+}
+
+nav a {
+    color: white;
+    margin: 0 25px;
+    text-decoration: none;
+    font-size: 26px;
+    text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
+    position: relative;
+    transition: color 0.3s, transform 0.3s ease, opacity 0.3s ease;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Анимация для кнопок */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Анимация для проявления снизу */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Обновление стилей для корзины */
+.cart-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
+    width: 80%;
+    max-width: 700px;
+    margin: 20px auto;
+    color: white;
+    animation: fadeUp 1s ease-out;
+}
+
+.cart-container h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 45px;
+    margin-top: 10px; /* Уменьшено расстояние */
+    background: linear-gradient(to right, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: fadeUp 1s ease-out;
+}
+
+/* Товары в корзине */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 10px;
+    border-radius: 10px;
+    opacity: 1;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Плавное исчезновение и подъем */
+}
+
+.cart-item.removed {
+    opacity: 0;
+    transform: translateY(-20px); /* Плавно уходим вверх */
+}
+
+/* Появление товара */
+.cart-item:not(.removed) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.item-details {
+    max-width: 500px;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.item-details h3 {
+    font-size: 24px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantity input {
+    width: 40px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.quantity button {
+    background-color: #00BFFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.quantity button:hover {
+    background-color: #00A4D8;
+    transform: scale(1.1);
+}
+
+.remove {
+    background-color: #FF6347;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.remove:hover {
+    background-color: #FF4500;
+    transform: scale(1.1);
+}
+
+.cart-summary {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.cart-summary p {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+#checkout-btn {
+    background-color: #32CD32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#checkout-btn:hover {
+    background-color: #28A745;
+    transform: scale(1.1);
+}
+
+#continue-shopping-btn {
+    background-color: #00BFFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: 15px;
+}
+
+#continue-shopping-btn:hover {
+    background-color: #00A4D8;
+    transform: scale(1.1);
+}
+
+/* Кнопка очистки корзины */
+#clear-cart-btn {
+    background-color: #FF6347;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: 15px;
+}
+
+#clear-cart-btn:hover {
+    background-color: #FF4500;
+    transform: scale(1.1);
+}

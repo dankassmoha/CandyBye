@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CandyBye - Вход/Регистрация</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> <!-- Подключаем шрифт -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="index">
+    <!-- Контейнер для фона с анимацией -->
+    <div class="background-container"></div> 
+
+    <img src="image/logo.png" alt="CandyBye Logo" class="logo"> <!-- Логотип -->
+
+    <div class="auth-container">
+        <h1>Добро пожаловать в CandyBye</h1>
+        <form id="auth-form">
+            <input type="text" id="nickname" placeholder="Придумайте ник" required>
+            <input type="password" id="password" placeholder="Пароль" required>
+            <button type="button" class="btn" onclick="register()">Зарегистрироваться</button>
+            <button type="button" class="btn" onclick="login()">Войти</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+    <script src="script.js"></script> <!-- Подключение скрипта -->
+</body>
+</html>

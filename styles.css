@@ -1,0 +1,189 @@
+/* Общее оформление */
+body {
+  position: relative;
+  font-family: 'Pacifico', cursive;
+  background: url('image/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  margin: 0;
+  text-align: center;
+  min-height: 100vh; /* Обеспечивает, что тело страницы будет занимать всю высоту */
+  font-size: 18px; /* Основной размер шрифта */
+  overflow-x: hidden; /* Ограничение горизонтальной прокрутки */
+  transition: opacity 1s ease; /* Плавный переход для opacity */
+  opacity: 1; /* Изначально видимая страница */
+}
+
+/* Тёмная наложенная полупрозрачная область */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный для затемнения */
+  z-index: -1; /* Помещаем его за контентом */
+}
+
+/* Шапка */
+header {
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
+  padding: 10px 0; /* Уменьшение верхнего отступа */
+  margin: 0;
+  position: relative; /* Это позволит вам управлять позиционированием элементов */
+}
+
+/* Анимация логотипа */
+.logo {
+  width: 250px;
+  margin-top: 10px; /* Уменьшаем отступ сверху */
+  animation: bounceLogo 2s infinite;
+}
+
+@keyframes bounceLogo {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+}
+
+nav {
+  margin-top: 0px; /* Уменьшение отступа для навигации */
+}
+
+nav a {
+  color: white;
+  margin: 0 25px;
+  text-decoration: none;
+  font-size: 26px;
+  text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
+  position: relative;
+  transition: color 0.3s, transform 0.3s ease, opacity 0.3s ease;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Основной раздел */
+.main-section {
+  margin: 60px 0;
+}
+
+h1, .slogan, .popular-products h2 {
+  text-shadow: 
+      0 0 5px #00BFFF, /* Светящийся голубой */
+      0 0 10px #00BFFF,
+      0 0 20px #00FFFF, /* Глубокий голубой для контраста */
+      0 0 30px #00FFFF;
+}
+
+h1 {
+  font-size: 50px; 
+}
+
+.slogan {
+  font-size: 30px; 
+  font-weight: bold;
+}
+
+.slogan, .popular-products h2 {
+  color: white;
+}
+
+/* Категории */
+.category {
+  display: inline-block;
+  margin: 30px;
+  padding: 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 20px;
+  color: white;
+  text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.category:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05); 
+}
+
+.category:hover img {
+  filter: blur(0);
+  transform: scale(1.05); 
+}
+
+.category img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 20px;
+  filter: blur(3px); /* Меньше размытости */
+  transition: filter 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Популярные товары */
+.popular-products {
+  margin-top: 60px;
+}
+
+.product {
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  width: 180px;
+  font-size: 18px;
+  color: white;
+  text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.product:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05); 
+}
+
+.product:hover img {
+  filter: blur(0); 
+  transform: scale(1.05); 
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  filter: blur(3px); 
+  transition: filter 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* Анимация для плавного появления */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/* Анимация для появления фона */
+body.fade-in-background {
+  opacity: 1;
+}
+
