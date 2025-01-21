@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/candybye/static/js/main.4a37a1df.js",
-    "index.html": "/candybye/index.html",
-    "main.4a37a1df.js.map": "/candybye/static/js/main.4a37a1df.js.map"
+    "main.js": "/CandyBye/static/js/main.4a37a1df.js",
+    "index.html": "/CandyBye/index.html",
+    "main.4a37a1df.js.map": "/CandyBye/static/js/main.4a37a1df.js.map"
   },
   "entrypoints": [
     "static/js/main.4a37a1df.js"
