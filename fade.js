@@ -11,5 +11,5 @@ window.addEventListener('load', () => {
 // Функция для отображения/скрытия мобильного меню
 function toggleMenu() {
     const nav = document.querySelector('.mobile-nav');
-    nav.classList.toggle('active');
+    nav.classList.toggle('active'); // Переключение видимости меню
 }

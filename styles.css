@@ -252,53 +252,82 @@ body.fade-in-background {
 /* Для экранов шириной до 768px */
 @media (max-width: 768px) {
   body {
-      font-size: 16px; /* Уменьшаем размер шрифта */
+    font-size: 16px; /* Уменьшаем размер шрифта */
   }
 
   .logo {
-      width: 150px; /* Уменьшаем размер логотипа */
+    width: 150px; /* Уменьшаем размер логотипа */
   }
 
   nav a {
-      font-size: 20px; /* Уменьшаем размер шрифта в навигации */
-      margin: 0 10px; /* Уменьшаем отступы между ссылками */
+    font-size: 20px; /* Уменьшаем размер шрифта в навигации */
+    margin: 0 10px; /* Уменьшаем отступы между ссылками */
   }
 
   h1 {
-      font-size: 35px; /* Уменьшаем размер заголовка */
+    font-size: 35px; /* Уменьшаем размер заголовка */
   }
 
   .slogan {
-      font-size: 20px; /* Уменьшаем размер подзаголовка */
+    font-size: 20px; /* Уменьшаем размер подзаголовка */
   }
 
+  /* Категории */
   .category {
-      display: block; /* Строки переходят в столбцы */
-      width: 100%; /* Категории занимают всю ширину */
-      margin: 20px 0; /* Добавляем вертикальные отступы */
+    display: inline-block;
+    width: 120px; /* Уменьшаем ширину */
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px; /* Уменьшаем размер шрифта */
+    color: white;
+    text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.2);
   }
 
   .category img {
-      width: 100%; /* Изображения растягиваются на всю ширину */
-      height: auto;
+    width: 100px; /* Уменьшаем изображение */
+    height: 100px; /* Уменьшаем изображение */
+    object-fit: cover;
+    border-radius: 10px;
   }
 
-  .popular-products .product {
-      width: 100%; /* Продукты занимают всю ширину */
-      margin: 10px 0; /* Вертикальные отступы */
+  /* Популярные товары */
+  .product {
+    display: inline-block;
+    width: 120px; /* Уменьшаем ширину */
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    font-size: 14px; /* Уменьшаем размер шрифта */
+    color: white;
+    text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.2);
+    cursor: pointer;
   }
 
-/* Показываем кнопку только на мобильных устройствах */
+  .product img {
+    width: 100px; /* Уменьшаем изображение */
+    height: 100px; /* Уменьшаем изображение */
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* Показываем кнопку только на мобильных устройствах */
   .menu-toggle {
-      display: block;
+    display: block; /* Показываем кнопку бургер-меню */
   }
 
   nav {
-      display: none; /* Скрываем навигацию на мобильных */
+    display: none; /* Скрываем обычное меню на мобильных устройствах */
   }
 
   .mobile-nav.active {
-      display: block; /* Показываем мобильное меню при активации */
+    display: block; /* Показываем мобильное меню при активации */
   }
 }
 
