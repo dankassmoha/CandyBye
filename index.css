@@ -166,8 +166,6 @@ p {
     }
     body {
         font-size: 16px; /* Уменьшаем размер шрифта */
-        background-size: contain; /* Фон будет масштабироваться, чтобы полностью вмещаться */
-        background-position: center center; /* Центрируем фон */
         }
     }
 

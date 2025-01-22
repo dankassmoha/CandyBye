@@ -221,6 +221,7 @@ h1 {
   transform: translateX(100%); /* Начальная позиция за экраном */
   transition: transform 0.4s ease-out, box-shadow 0.3s ease, opacity 0.3s ease;
   opacity: 0; /* Изначально скрыто */
+  z-index: 100;
 }
 
 /* Показываем меню при активном классе */
@@ -305,8 +306,6 @@ body.fade-in-background {
 @media (max-width: 768px) {
   body {
     font-size: 16px; /* Уменьшаем размер шрифта */
-    background-size: contain; /* Фон будет масштабироваться, чтобы полностью вмещаться */
-    background-position: center center; /* Центрируем фон */
     }
 
   .logo {
