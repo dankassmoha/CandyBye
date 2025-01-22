@@ -22,6 +22,40 @@
         </nav>
     </header>
 
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.mobile-nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+    
+    <style>
+        .mobile-nav {
+            display: none;
+        }
+    
+        .mobile-nav.active {
+            display: block;
+        }
+    
+        .menu-toggle {
+            display: block;
+            font-size: 30px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+    
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+
     <section class="main-section" data-aos="fade-up">
         <h1>Добро пожаловать в CandyBye</h1>
         <p class="slogan">Мы предлагаем самые вкусные сладости, чтобы угодить каждому!</p>

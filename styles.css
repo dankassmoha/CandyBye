@@ -8,7 +8,7 @@ body {
   margin: 0;
   text-align: center;
   min-height: 100vh; /* Обеспечивает, что тело страницы будет занимать всю высоту */
-  font-size: 18px; /* Основной размер шрифта */
+  font-size: 1rem; /* Основной размер шрифта */
   overflow-x: hidden; /* Ограничение горизонтальной прокрутки */
   transition: opacity 1s ease; /* Плавный переход для opacity */
   opacity: 1; /* Изначально видимая страница */
@@ -86,7 +86,7 @@ h1, .slogan, .popular-products h2 {
 }
 
 h1 {
-  font-size: 50px; 
+  font-size: 3rem; 
 }
 
 .slogan {
@@ -193,3 +193,42 @@ body.fade-in-background {
   opacity: 1;
 }
 
+/* Для экранов шириной до 768px */
+@media (max-width: 768px) {
+  body {
+      font-size: 16px; /* Уменьшаем размер шрифта */
+  }
+
+  .logo {
+      width: 150px; /* Уменьшаем размер логотипа */
+  }
+
+  nav a {
+      font-size: 20px; /* Уменьшаем размер шрифта в навигации */
+      margin: 0 10px; /* Уменьшаем отступы между ссылками */
+  }
+
+  h1 {
+      font-size: 35px; /* Уменьшаем размер заголовка */
+  }
+
+  .slogan {
+      font-size: 20px; /* Уменьшаем размер подзаголовка */
+  }
+
+  .category {
+      display: block; /* Строки переходят в столбцы */
+      width: 100%; /* Категории занимают всю ширину */
+      margin: 20px 0; /* Добавляем вертикальные отступы */
+  }
+
+  .category img {
+      width: 100%; /* Изображения растягиваются на всю ширину */
+      height: auto;
+  }
+
+  .popular-products .product {
+      width: 100%; /* Продукты занимают всю ширину */
+      margin: 10px 0; /* Вертикальные отступы */
+  }
+}
