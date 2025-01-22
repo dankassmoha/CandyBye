@@ -260,7 +260,7 @@ body.menu-active::before {
 
 /* Стиль для кнопки гамбургер */
 .menu-toggle {
-  display: block; /* Показываем кнопку бургер-меню */
+  display: block; /* Показываем кнопку бургер-меню на мобильных устройствах */
   font-size: 30px;
   background: none;
   border: none;
@@ -286,15 +286,6 @@ body.menu-active::before {
   animation: menuBounce 0.5s ease-in-out;
 }
 
-@keyframes slideIn {
-  from {
-      transform: translateX(100%);
-  }
-  to {
-      transform: translateX(0);
-  }
-}
-
 /* Анимация для плавного появления */
 @keyframes fadeIn {
   from {
@@ -314,7 +305,9 @@ body.fade-in-background {
 @media (max-width: 768px) {
   body {
     font-size: 16px; /* Уменьшаем размер шрифта */
-  }
+      background-size: contain; /* Это гарантирует, что фон будет целиком помещаться в экран */
+      background-position: center center; /* Центрируем фон на экране */
+    }
 
   .logo {
     width: 150px; /* Уменьшаем размер логотипа */
@@ -322,57 +315,31 @@ body.fade-in-background {
 
   nav a {
     font-size: 20px; /* Уменьшаем размер шрифта в навигации */
-    margin: 0 10px; /* Уменьшаем отступы между ссылками */
+    margin: 0 10px; /* Уменьшаем отступы */
   }
 
-  h1 {
-    font-size: 35px; /* Уменьшаем размер заголовка */
-  }
-
-  .slogan {
-    font-size: 20px; /* Уменьшаем размер подзаголовка */
-  }
-
-  /* Категории */
-  .category {
-    display: inline-block;
-    width: 120px; /* Уменьшаем ширину */
-    margin: 10px;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 16px; /* Уменьшаем размер шрифта */
-    color: white;
-    text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 15px rgba(0, 255, 255, 0.2);
-    opacity: 0;
-    animation: fadeIn 0.8s ease-out forwards;
-  }
-
-  /* Популярные товары */
-  .product {
-    display: inline-block;
-    margin: 10px;
+  .category, .product {
+    width: 120px; /* Уменьшаем размеры категорий и продуктов */
     padding: 15px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 5px;
-    width: 150px;
     font-size: 16px;
-    color: white;
-    text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
-    opacity: 0;
-    animation: fadeIn 1s ease-out forwards;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  .menu-toggle {
+    display: block; /* Показываем кнопку гамбургер */
+  }
+
+  nav {
+    display: none; /* Скрываем стандартное меню на мобильных устройствах */
+  }
+
+  .mobile-nav {
+    display: flex; /* Показываем мобильное меню */
   }
 }
 
-/* Для экранов шириной больше 768px скрыть кнопку */
-@media (min-width: 768px) {
-  .menu-toggle {
-    display: none; /* Скрыть кнопку гамбургер на экранах с шириной больше 768px */
+  /* Для экранов шириной больше 768px скрыть кнопку */
+  @media (min-width: 768px) {
+    .menu-toggle {
+      display: none; /* Скрыть кнопку гамбургер на экранах с шириной больше 768px */
+    }
   }
-}

@@ -164,23 +164,12 @@ p {
         font-size: 14px;
         padding: 10px;
     }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        width: 60%;
+    body {
+        font-size: 16px; /* Уменьшаем размер шрифта */
+          background-size: contain; /* Это гарантирует, что фон будет целиком помещаться в экран */
+          background-position: center center; /* Центрируем фон на экране */
+        }
     }
 
-    h1 {
-        font-size: 1.5rem;
-    }
 
-    .btn {
-        padding: 8px;
-        font-size: 12px;
-    }
 
-    .auth-container {
-        padding: 15px;
-    }
-}
