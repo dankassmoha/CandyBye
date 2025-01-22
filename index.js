@@ -62,5 +62,4 @@ function transitionPage(nextPage) {
 
 document.addEventListener("DOMContentLoaded", () => {
     const logo = document.querySelector(".logo");
-    logo.style.animation = "rotateLogo 5s linear infinite";
 });
