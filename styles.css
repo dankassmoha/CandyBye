@@ -35,6 +35,20 @@ header {
   position: relative; /* Это позволит вам управлять позиционированием элементов */
 }
 
+/* Стиль для кнопки гамбургер */
+.menu-toggle {
+  display: none; /* Скрываем кнопку на больших экранах */
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 10px; /* Отступ сверху */
+  right: 10px; /* Отступ справа */
+  z-index: 100; /* Чтобы кнопка была поверх контента */
+}
+
 /* Анимация логотипа */
 .logo {
   width: 250px;
@@ -178,6 +192,48 @@ h1 {
   animation: fadeIn 1s ease-out forwards;
 }
 
+/* Стиль для мобильного меню */
+.mobile-nav {
+  display: none; /* По умолчанию скрыто */
+  flex-direction: column;
+  position: absolute;
+  top: 60px; /* Расположение под шапкой */
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+/* Показываем меню при активном классе */
+.mobile-nav.active {
+  display: flex;
+  animation: slideIn 0.3s ease-out; /* Плавная анимация появления */
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateX(100%);
+  }
+  to {
+      transform: translateX(0);
+  }
+}
+
+/* Стиль для кнопки гамбургер */
+.menu-toggle {
+  display: block;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+}
+
 /* Анимация для плавного появления */
 @keyframes fadeIn {
   from {
@@ -230,5 +286,25 @@ body.fade-in-background {
   .popular-products .product {
       width: 100%; /* Продукты занимают всю ширину */
       margin: 10px 0; /* Вертикальные отступы */
+  }
+
+/* Показываем кнопку только на мобильных устройствах */
+  .menu-toggle {
+      display: block;
+  }
+
+  nav {
+      display: none; /* Скрываем навигацию на мобильных */
+  }
+
+  .mobile-nav.active {
+      display: block; /* Показываем мобильное меню при активации */
+  }
+}
+
+/* Для экранов шириной больше 768px скрыть кнопку */
+@media (min-width: 768px) {
+  .menu-toggle {
+      display: none; /* Скрыть кнопку гамбургер на экранах с шириной больше 768px */
   }
 }
