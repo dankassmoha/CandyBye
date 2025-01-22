@@ -199,16 +199,36 @@ h1 {
   position: absolute;
   top: 60px; /* Расположение под шапкой */
   right: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  width: 100%;
-  padding: 20px;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
+  width: 200px; /* Уменьшаем ширину */
+  padding: 15px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Легкая тень */
+  border-radius: 10px; /* Скругленные углы */
+  transform: translateX(100%); /* Начальная позиция за экраном */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный вход */
 }
 
 /* Показываем меню при активном классе */
 .mobile-nav.active {
   display: flex;
-  animation: slideIn 0.3s ease-out; /* Плавная анимация появления */
+  transform: translateX(0); /* Плавное появление меню */
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Более яркая тень при активации */
+}
+
+/* Ссылки в мобильном меню */
+.mobile-nav a {
+  color: white;
+  margin: 10px 0;
+  text-decoration: none;
+  font-size: 22px; /* Увеличиваем шрифт для лучшего восприятия */
+  text-align: center;
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.mobile-nav a:hover {
+  color: #87CEFA; /* Светло-голубой при наведении */
+  transform: scale(1.1); /* Легкое увеличение */
+  text-shadow: 0 0 10px #87CEFA, 0 0 20px #87CEFA; /* Светящийся эффект */
 }
 
 @keyframes slideIn {
