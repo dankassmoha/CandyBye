@@ -62,8 +62,14 @@ nav a {
   font-size: 26px;
   text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
   position: relative;
-  transition: color 0.3s, transform 0.3s ease, opacity 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
   animation: fadeIn 0.5s ease-out;
+}
+
+nav a:hover {
+  color: #87CEFA; /* Нежно голубой цвет */
+  transform: scale(1.1); /* Увеличение на 10% */
+  text-shadow: 0 0 10px #87CEFA, 0 0 20px #87CEFA; /* Светящийся эффект */
 }
 
 /* Основной раздел */

@@ -1,4 +1,4 @@
-/* Контейнер для фона */
+/* Базовые стили для всех устройств */
 body.index {
     margin: 0;
     display: flex;
@@ -6,20 +6,11 @@ body.index {
     align-items: center;
     height: 100vh;
     position: relative;
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
 }
 
-/* Инициализация стилей для анимации фейд */
-body {
-    transition: opacity 1s ease; /* Плавный переход для opacity */
-    opacity: 1; /* Изначально видимая страница */
-}
-
-/* Для состояния при переходе страницы */
-body.fade-out {
-    opacity: 0; /* Прозрачность, когда страница исчезает */
-}
-
-/* Новый элемент для фона с анимацией */
+/* Фон с анимацией */
 body.index .background-container {
     position: absolute;
     top: 0;
@@ -30,9 +21,9 @@ body.index .background-container {
     background-size: cover;
     opacity: 0;
     animation: fadeInBackground 2s ease-out forwards;
+    z-index: -1;
 }
 
-/* Плавное появление фона */
 @keyframes fadeInBackground {
     from {
         opacity: 0;
@@ -42,51 +33,44 @@ body.index .background-container {
     }
 }
 
-/* Анимация кручения логотипа вокруг своей оси */
-@keyframes rotateLogo {
-    0% {
-        transform: rotateY(0deg); /* Начальный угол */
-    }
-    100% {
-        transform: rotateY(360deg); /* Конечный угол */
-    }
-}
-
 /* Логотип */
-.logo {
-    position: absolute;
-    top: 50px;
-    left: 42%;
-    transform: translateX(-50%);
-    width: 300px;
-    z-index: 1;
-    opacity: 0;
-    animation: fadeInLogo 2s ease-out 1s forwards, rotateLogo 5s linear infinite;
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
-/* Плавное появление логотипа */
+.logo {
+    width: 80%;
+    max-width: 300px;
+    height: auto;
+    animation: fadeInLogo 2s ease-out forwards;
+}
+
 @keyframes fadeInLogo {
     from {
         opacity: 0;
+        transform: scale(0.9);
     }
     to {
         opacity: 1;
+        transform: scale(1);
     }
 }
 
-/* Стиль контейнера для формы */
+/* Контейнер авторизации */
 .auth-container {
-    background: rgba(0, 0, 0, 0.8); 
+    background: rgba(0, 0, 0, 0.8);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
     width: 300px;
     z-index: 2;
     opacity: 0;
-    animation: fadeInAuth 2s ease-out forwards 2s; /* Плавное появление формы с задержкой */
+    animation: fadeInAuth 2s ease-out forwards 2s;
+    text-align: center;
 }
 
-/* Плавное появление формы */
 @keyframes fadeInAuth {
     from {
         opacity: 0;
@@ -96,11 +80,10 @@ body.index .background-container {
     }
 }
 
-/* Прочие стили */
 h1 {
     font-family: 'Pacifico', cursive;
     font-size: 2.5rem;
-    background: linear-gradient(to right, #ff00ff, #00ffff); 
+    background: linear-gradient(to right, #ff00ff, #00ffff);
     -webkit-background-clip: text;
     color: transparent;
     text-align: center;
@@ -134,5 +117,46 @@ input {
 }
 
 p {
-    color: rgba(255, 255, 255, 0.8); 
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Мобильная оптимизация */
+@media (max-width: 768px) {
+    .logo {
+        width: 70%;
+        max-width: 200px;
+    }
+
+    .auth-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    input, .btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 60%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .auth-container {
+        padding: 15px;
+    }
 }
