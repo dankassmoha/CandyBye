@@ -374,7 +374,6 @@ body::before {
 @media (max-width: 768px) {
     body {
         font-size: 16px; /* Уменьшаем размер шрифта */
-          background-size: contain; /* Это гарантирует, что фон будет целиком помещаться в экран */
           background-position: center center; /* Центрируем фон на экране */
         }
   
