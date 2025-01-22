@@ -84,6 +84,20 @@ nav a:hover {
   color: #87CEFA; /* Нежно голубой цвет */
   transform: scale(1.1); /* Увеличение на 10% */
   text-shadow: 0 0 10px #87CEFA, 0 0 20px #87CEFA; /* Светящийся эффект */
+  animation: linkClick 0.2s ease-out;
+}
+
+/* Анимация при нажатии на ссылку */
+@keyframes linkClick {
+  0% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1.1);
+  }
 }
 
 /* Основной раздел */
@@ -215,6 +229,7 @@ h1 {
   transform: translateX(0); /* Плавное появление меню */
   opacity: 1; /* Меню становится видимым */
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.8); /* Более яркая тень при активации */
+  animation: fadeIn 0.5s ease-out;
 }
 
 /* Фон при активации меню */
@@ -270,7 +285,6 @@ body.menu-active::before {
 .menu-toggle:hover {
   animation: menuBounce 0.5s ease-in-out;
 }
-
 
 @keyframes slideIn {
   from {
@@ -332,67 +346,26 @@ body.fade-in-background {
     font-size: 16px; /* Уменьшаем размер шрифта */
     color: white;
     text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.2);
-  }
-
-  .category img {
-    width: 100px; /* Уменьшаем изображение */
-    height: 100px; /* Уменьшаем изображение */
-    object-fit: cover;
-    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 15px rgba(0, 255, 255, 0.2);
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
   }
 
   /* Популярные товары */
   .product {
     display: inline-block;
-    width: 120px; /* Уменьшаем ширину */
     margin: 10px;
-    padding: 10px;
+    padding: 15px;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 5px;
-    font-size: 14px; /* Уменьшаем размер шрифта */
+    width: 150px;
+    font-size: 16px;
     color: white;
     text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
     cursor: pointer;
-  }
-
-  .product img {
-    width: 100px; /* Уменьшаем изображение */
-    height: 100px; /* Уменьшаем изображение */
-    object-fit: cover;
-    border-radius: 10px;
-  }
-
-  /* Показываем кнопку только на мобильных устройствах */
-  .menu-toggle {
-    display: block; /* Показываем кнопку бургер-меню */
-    font-size: 35px; /* Увеличиваем размер кнопки */
-  }
-
-  nav {
-    display: none; /* Скрываем обычное меню на мобильных устройствах */
-  }
-
-  .mobile-nav.active {
-    display: block; /* Показываем мобильное меню при активации */
-  }
-
-  /* Мобильное меню */
-  .mobile-nav {
-    width: 250px; /* Увеличиваем ширину */
-    top: 70px; /* Отступ от верхней части экрана */
-  }
-
-  /* Дополнительный эффект фона при активации */
-  body.menu-active::before {
-    display: block;
-  }
-}
-
-/* Для экранов шириной больше 768px скрыть кнопку */
-@media (min-width: 768px) {
-  .menu-toggle {
-      display: none; /* Скрыть кнопку гамбургер на экранах с шириной больше 768px */
+    transition: transform 0.3s ease, background-color 0.3s ease;
   }
 }
