@@ -4,21 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Корзина - CandyBye</title>
+    <link rel="icon" href="image/icon.jpg" sizes="16x16" type="image/jpeg">
+    <link rel="icon" href="image/icon.jpg" sizes="32x32" type="image/jpeg">
+    <link rel="icon" href="image/icon.jpg" sizes="192x192" type="image/jpeg">
+    <link rel="icon" href="image/icon.jpg" sizes="512x512" type="image/jpeg">
     <link rel="stylesheet" href="cart.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Шапка сайта -->
-    <header>
+     <!-- Шапка -->
+     <header>
         <img src="image/logo.png" alt="CandyBye Logo" class="logo">
         <nav>
             <a href="main.html">Главная</a>
             <a href="#category1">Снеки</a>
             <a href="#category2">Напитки</a>
             <a href="cart.html">Корзина</a>
-            <a href="profile.html">Личный кабинет</a>
+            <a href="profile.html">Личный кабинет</a> <!-- Вкладка личного кабинета -->
         </nav>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <!-- Мобильное меню -->
+        <div class="mobile-nav">
+            <a href="main.html">Главная</a>
+            <a href="#category1">Снеки</a>
+            <a href="#category2">Напитки</a>
+            <a href="cart.html">Корзина</a>
+            <a href="profile.html">Личный кабинет</a> <!-- Вкладка личного кабинета -->
+        </div>
     </header>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.mobile-nav');
+            nav.classList.toggle('active');
+        }
+    </script>
     
     <!-- Основной блок с корзиной -->
     <main>

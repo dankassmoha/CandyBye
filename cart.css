@@ -34,6 +34,95 @@ header {
     position: relative; /* Это позволит вам управлять позиционированием элементов */
 }
 
+/* Стиль для кнопки гамбургер */
+.menu-toggle {
+    display: none; /* Скрываем кнопку на больших экранах */
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 10px; /* Отступ сверху */
+    right: 10px; /* Отступ справа */
+    z-index: 100; /* Чтобы кнопка была поверх контента */
+  }
+
+  /* Стиль для мобильного меню */
+.mobile-nav {
+    display: none; /* По умолчанию скрыто */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Расположение под шапкой */
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
+    width: 200px; /* Уменьшаем ширину */
+    padding: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Легкая тень */
+    border-radius: 10px; /* Скругленные углы */
+    transform: translateX(100%); /* Начальная позиция за экраном */
+    transition: transform 0.4s ease-out, box-shadow 0.3s ease, opacity 0.3s ease;
+    opacity: 0; /* Изначально скрыто */
+  }
+  
+  /* Показываем меню при активном классе */
+  .mobile-nav.active {
+    display: flex;
+    transform: translateX(0); /* Плавное появление меню */
+    opacity: 1; /* Меню становится видимым */
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8); /* Более яркая тень при активации */
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  /* Фон при активации меню */
+  body.menu-active::before {
+    opacity: 0.6; /* Затмение фона */
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Ссылки в мобильном меню */
+  .mobile-nav a {
+    color: white;
+    margin: 15px 0;
+    text-decoration: none;
+    font-size: 22px; /* Увеличиваем шрифт для лучшего восприятия */
+    text-align: center;
+    padding: 10px;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .mobile-nav a:hover {
+    color: #87CEFA; /* Светло-голубой при наведении */
+    transform: scale(1.1); /* Легкое увеличение */
+    text-shadow: 0 0 10px #87CEFA, 0 0 20px #87CEFA; /* Светящийся эффект */
+    background-color: rgba(255, 255, 255, 0.2); /* Легкий фон при наведении */
+  }
+  
+  /* Анимация для кнопки гамбургер */
+  @keyframes menuBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+  }
+  
+  .menu-toggle:hover {
+    animation: menuBounce 0.5s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+  }
+
 /* Анимация логотипа */
 .logo {
     width: 250px;
@@ -248,3 +337,43 @@ nav a {
     background-color: #FF4500;
     transform: scale(1.1);
 }
+
+/* Для экранов шириной до 768px */
+@media (max-width: 768px) {
+    body {
+      font-size: 16px; /* Уменьшаем размер шрифта */
+    }
+  
+    .logo {
+      width: 150px; /* Уменьшаем размер логотипа */
+    }
+  
+    nav a {
+      font-size: 20px; /* Уменьшаем размер шрифта в навигации */
+      margin: 0 10px; /* Уменьшаем отступы между ссылками */
+    }
+  
+    h1 {
+      font-size: 35px; /* Уменьшаем размер заголовка */
+    }
+
+    .menu-toggle {
+        display: block; /* Показываем кнопку бургер-меню */
+      }
+    
+      nav {
+        display: none; /* Скрываем обычное меню на мобильных устройствах */
+      }
+    
+      .mobile-nav.active {
+        display: block; /* Показываем мобильное меню при активации */
+      }
+    }
+
+
+  /* Для экранов шириной больше 768px скрыть кнопку */
+@media (min-width: 768px) {
+    .menu-toggle {
+      display: none; /* Скрыть кнопку гамбургер на экранах с шириной больше 768px */
+    }
+  }

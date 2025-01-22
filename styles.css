@@ -286,6 +286,15 @@ body.menu-active::before {
   animation: menuBounce 0.5s ease-in-out;
 }
 
+@keyframes slideIn {
+  from {
+      transform: translateX(100%);
+  }
+  to {
+      transform: translateX(0);
+  }
+}
+
 /* Анимация для плавного появления */
 @keyframes fadeIn {
   from {
@@ -294,6 +303,11 @@ body.menu-active::before {
   to {
       opacity: 1;
   }
+}
+
+/* Анимация для появления фона */
+body.fade-in-background {
+  opacity: 1;
 }
 
 /* Для экранов шириной до 768px */
@@ -353,5 +367,12 @@ body.menu-active::before {
     animation: fadeIn 1s ease-out forwards;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+}
+
+/* Для экранов шириной больше 768px скрыть кнопку */
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none; /* Скрыть кнопку гамбургер на экранах с шириной больше 768px */
   }
 }
