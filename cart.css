@@ -25,15 +25,6 @@ body::before {
     z-index: -1;
 }
 
-/* Шапка */
-header {
-    background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
-    padding: 10px 0; /* Уменьшение верхнего отступа */
-    margin: 0;
-    position: relative; /* Это позволит вам управлять позиционированием элементов */
-}
-
 /* Стиль для кнопки гамбургер */
 .menu-toggle {
     display: none; /* Скрываем кнопку на больших экранах */
@@ -63,6 +54,7 @@ header {
     transform: translateX(100%); /* Начальная позиция за экраном */
     transition: transform 0.4s ease-out, box-shadow 0.3s ease, opacity 0.3s ease;
     opacity: 0; /* Изначально скрыто */
+    z-index: 100;
   }
   
   /* Показываем меню при активном классе */
@@ -91,7 +83,6 @@ header {
     transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
     border-radius: 5px;
     position: relative;
-    z-index: 100;
   }
   
   .mobile-nav a:hover {
@@ -114,15 +105,15 @@ header {
   .menu-toggle:hover {
     animation: menuBounce 0.5s ease-in-out;
   }
-  
-  @keyframes slideIn {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(0);
-    }
-  }
+
+/* Шапка */
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.2);
+    padding: 10px 0; /* Уменьшение верхнего отступа */
+    margin: 0;
+    position: relative; /* Это позволит вам управлять позиционированием элементов */
+}
 
 /* Анимация логотипа */
 .logo {
@@ -140,6 +131,10 @@ header {
     }
 }
 
+nav {
+    margin-top: 0px; /* Уменьшение отступа для навигации */
+}
+
 nav a {
     color: white;
     margin: 0 25px;
@@ -147,15 +142,9 @@ nav a {
     font-size: 26px;
     text-shadow: 0 0 5px #00BFFF, 0 0 10px #00BFFF;
     position: relative;
-    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.3s, transform 0.3s ease, opacity 0.3s ease;
     animation: fadeIn 0.5s ease-out;
-  }
-  
-  nav a:hover {
-    color: #87CEFA; /* Нежно голубой цвет */
-    transform: scale(1.1); /* Увеличение на 10% */
-    text-shadow: 0 0 10px #87CEFA, 0 0 20px #87CEFA; /* Светящийся эффект */
-  }
+}
 
 /* Анимация для кнопок */
 @keyframes fadeIn {
@@ -342,9 +331,8 @@ nav a {
 /* Для экранов шириной до 768px */
 @media (max-width: 768px) {
     body {
-      font-size: 16px; /* Уменьшаем размер шрифта */
-      }
-    }
+        font-size: 16px; /* Уменьшаем размер шрифта */
+        }
   
     .logo {
       width: 150px; /* Уменьшаем размер логотипа */
@@ -370,6 +358,7 @@ nav a {
       .mobile-nav.active {
         display: block; /* Показываем мобильное меню при активации */
       }
+    }
 
 
   /* Для экранов шириной больше 768px скрыть кнопку */
