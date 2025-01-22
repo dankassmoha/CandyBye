@@ -205,44 +205,47 @@ h1 {
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Легкая тень */
   border-radius: 10px; /* Скругленные углы */
   transform: translateX(100%); /* Начальная позиция за экраном */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный вход */
+  transition: transform 0.4s ease-out, box-shadow 0.3s ease, opacity 0.3s ease;
+  opacity: 0; /* Изначально скрыто */
 }
 
 /* Показываем меню при активном классе */
 .mobile-nav.active {
   display: flex;
   transform: translateX(0); /* Плавное появление меню */
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Более яркая тень при активации */
+  opacity: 1; /* Меню становится видимым */
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.8); /* Более яркая тень при активации */
+}
+
+/* Фон при активации меню */
+body.menu-active::before {
+  opacity: 0.6; /* Затмение фона */
+  transition: opacity 0.3s ease;
 }
 
 /* Ссылки в мобильном меню */
 .mobile-nav a {
   color: white;
-  margin: 10px 0;
+  margin: 15px 0;
   text-decoration: none;
   font-size: 22px; /* Увеличиваем шрифт для лучшего восприятия */
   text-align: center;
+  padding: 10px;
   transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+  border-radius: 5px;
+  position: relative;
 }
 
 .mobile-nav a:hover {
   color: #87CEFA; /* Светло-голубой при наведении */
   transform: scale(1.1); /* Легкое увеличение */
   text-shadow: 0 0 10px #87CEFA, 0 0 20px #87CEFA; /* Светящийся эффект */
-}
-
-@keyframes slideIn {
-  from {
-      transform: translateX(100%);
-  }
-  to {
-      transform: translateX(0);
-  }
+  background-color: rgba(255, 255, 255, 0.2); /* Легкий фон при наведении */
 }
 
 /* Стиль для кнопки гамбургер */
 .menu-toggle {
-  display: block;
+  display: block; /* Показываем кнопку бургер-меню */
   font-size: 30px;
   background: none;
   border: none;
@@ -252,6 +255,30 @@ h1 {
   top: 10px;
   right: 10px;
   z-index: 100;
+}
+
+/* Анимация для кнопки гамбургер */
+@keyframes menuBounce {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.2);
+  }
+}
+
+.menu-toggle:hover {
+  animation: menuBounce 0.5s ease-in-out;
+}
+
+
+@keyframes slideIn {
+  from {
+      transform: translateX(100%);
+  }
+  to {
+      transform: translateX(0);
+  }
 }
 
 /* Анимация для плавного появления */
@@ -340,6 +367,7 @@ body.fade-in-background {
   /* Показываем кнопку только на мобильных устройствах */
   .menu-toggle {
     display: block; /* Показываем кнопку бургер-меню */
+    font-size: 35px; /* Увеличиваем размер кнопки */
   }
 
   nav {
@@ -348,6 +376,17 @@ body.fade-in-background {
 
   .mobile-nav.active {
     display: block; /* Показываем мобильное меню при активации */
+  }
+
+  /* Мобильное меню */
+  .mobile-nav {
+    width: 250px; /* Увеличиваем ширину */
+    top: 70px; /* Отступ от верхней части экрана */
+  }
+
+  /* Дополнительный эффект фона при активации */
+  body.menu-active::before {
+    display: block;
   }
 }
 
