@@ -9,18 +9,28 @@ function register() {
     const nickname = document.getElementById('nickname').value.trim();
     const password = document.getElementById('password').value.trim();
 
-    if (users[nickname]) {
-        showMessage('Ник уже занят. Попробуйте другой.');
-    } else if (nickname && password.length >= 6) {
-        users[nickname] = {
-            password: password,
-            registrationDate: new Date().toLocaleDateString()
-        };
-        localStorage.setItem('users', JSON.stringify(users));
-        showMessage('Регистрация успешна! Теперь войдите.', true);
-    } else {
-        showMessage('Пароль должен быть не менее 6 символов.');
+    if (!nickname || !password) {
+        showMessage('Заполните все поля!');
+        return;
     }
+
+    // Отправляем данные на сервер
+    fetch('http://localhost:3000/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nickname, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message) {
+            showMessage(data.message, true);
+        }
+    })
+    .catch(error => {
+        showMessage('Ошибка при регистрации.');
+    });
 }
 
 function login() {
@@ -32,14 +42,29 @@ function login() {
         return;
     }
 
-    if (users[nickname] && users[nickname].password === password) {
-        showMessage(`Добро пожаловать, ${nickname}!`, true);
-        localStorage.setItem('currentUser', nickname);
-        setTimeout(() => transitionPage('main.html'), 1000);
-    } else {
-        showMessage('Неправильный ник или пароль.');
-    }
+    // Отправляем данные на сервер для авторизации
+    fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nickname, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message) {
+            showMessage(data.message, true);
+            if (data.message.includes('Добро пожаловать')) {
+                // В сервере можно добавить сессионное хранение пользователя или токен
+                setTimeout(() => transitionPage('main.html'), 1000);
+            }
+        }
+    })
+    .catch(error => {
+        showMessage('Ошибка при входе.');
+    });
 }
+
 
 function showMessage(msg, success = false) {
     const messageEl = document.getElementById('message');

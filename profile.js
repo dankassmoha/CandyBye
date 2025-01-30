@@ -98,3 +98,9 @@ function logout() {
     localStorage.removeItem("currentUser");
     window.location.href = "index.html";
 }
+
+// Функция для отображения/скрытия мобильного меню
+function toggleMenu() {
+    const nav = document.querySelector('.mobile-nav');
+    nav.classList.toggle('active'); // Переключение видимости меню
+}

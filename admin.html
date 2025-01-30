@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель | CandyBye</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div id="admin-container">
+        <h1>Админ-панель</h1>
+        <form id="add-product-form">
+            <input type="text" id="product-name" placeholder="Название товара" required>
+            <input type="text" id="category" placeholder="Категория" required>
+            <input type="number" id="price" placeholder="Цена" required>
+            <input type="number" id="stock" placeholder="Количество" required>
+            <button type="button" onclick="addProduct()">Добавить товар</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    <script src="admin.js"></script>
+</body>
+</html>

@@ -6,6 +6,7 @@ body {
   background-size: cover;
   color: white;
   margin: 0;
+  padding: 0;
   text-align: center;
   min-height: 100vh; /* Обеспечивает, что тело страницы будет занимать всю высоту */
   font-size: 1rem; /* Основной размер шрифта */
@@ -103,6 +104,7 @@ nav a:hover {
 /* Основной раздел */
 .main-section {
   margin: 60px 0;
+  width: 100%;
 }
 
 h1, .slogan, .popular-products h2 {
@@ -115,11 +117,15 @@ h1, .slogan, .popular-products h2 {
 
 h1 {
   font-size: 3rem; 
+  margin-top: 0px; /* Уменьшение отступа сверху */
+  margin-bottom: 10px; /* Уменьшение отступа снизу */
 }
 
 .slogan {
   font-size: 30px; 
   font-weight: bold;
+  margin-top: 10px; /* Уменьшение расстояния между "Добро пожаловать" и текстом */
+  margin-bottom: 0; /* Убираем лишний отступ снизу */
 }
 
 .slogan, .popular-products h2 {
@@ -154,8 +160,9 @@ h1 {
 }
 
 .category img {
-  width: 150px;
-  height: 150px;
+  width: 100%; /* Ширина 100% от контейнера */
+  max-width: 150px; /* Ограничиваем максимальную ширину */
+  height: auto; /* Сохраняем пропорции */
   object-fit: cover;
   border-radius: 20px;
   filter: blur(3px); /* Меньше размытости */
@@ -194,11 +201,13 @@ h1 {
 .product:hover img {
   filter: blur(0); 
   transform: scale(1.05); 
+  
 }
 
 .product img {
-  width: 100%;
-  height: auto;
+  width: 100%; /* Ширина 100% от контейнера */
+  max-width: 300px; /* Ограничиваем максимальную ширину */
+  height: auto; /* Сохраняем пропорции */
   border-radius: 20px;
   filter: blur(3px); 
   transition: filter 0.3s ease, transform 0.3s ease;
@@ -306,6 +315,11 @@ body.fade-in-background {
 @media (max-width: 768px) {
   body {
     font-size: 16px; /* Уменьшаем размер шрифта */
+    background-image: url('image/backgroundmob.jpg'); /* Указываем фон для мобильных устройств */
+    }
+
+   h1 {
+      font-size: 2rem; /* Уменьшаем размер шрифта h1 */
     }
 
   .logo {

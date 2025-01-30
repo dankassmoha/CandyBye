@@ -22,7 +22,7 @@ header {
   }
 
   /* Стиль для мобильного меню */
-.mobile-nav {
+  .mobile-nav {
     display: none; /* По умолчанию скрыто */
     flex-direction: column;
     position: absolute;
@@ -40,7 +40,7 @@ header {
   }
   
   /* Показываем меню при активном классе */
-  .mobile-nav.active {
+.mobile-nav.active {
     display: flex;
     transform: translateX(0); /* Плавное появление меню */
     opacity: 1; /* Меню становится видимым */
@@ -49,12 +49,11 @@ header {
   }
   
   /* Фон при активации меню */
-  body.menu-active::before {
+body.menu-active::before {
     opacity: 0.6; /* Затмение фона */
     transition: opacity 0.3s ease;
   }
   
-  /* Ссылки в мобильном меню */
   .mobile-nav a {
     color: white;
     margin: 15px 0;
@@ -366,15 +365,15 @@ body::before {
     box-shadow: 0 0 8px rgba(0, 255, 255, 0.5); /* Добавление светящегося эффекта */
 }
 
-.avatar-menu.active button:focus {
-    outline: none; /* Убираем фокус по умолчанию */
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.7); /* Фокус с ярким контуром */
+.avatar-menu.active button:hover {
+    background-color: rgba(0, 255, 255, 0.5); /* Яркий эффект при наведении */
 }
 
 /* Для экранов шириной до 768px */
 @media (max-width: 768px) {
     body {
         font-size: 16px; /* Уменьшаем размер шрифта */
+        background-image: url('image/backgroundmob.jpg'); /* Указываем фон для мобильных устройств */
         }
   
     .logo {

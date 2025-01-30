@@ -332,6 +332,7 @@ nav a {
 @media (max-width: 768px) {
     body {
         font-size: 16px; /* Уменьшаем размер шрифта */
+        background-image: url('image/backgroundmob.jpg'); /* Указываем фон для мобильных устройств */
         }
   
     .logo {
